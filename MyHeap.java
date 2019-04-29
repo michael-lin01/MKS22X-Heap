@@ -1,3 +1,6 @@
+import java.util.*;
+import java.io.*;
+
 public class MyHeap{
 
   private static void swap(int[] data, int a, int b){
@@ -46,6 +49,28 @@ public class MyHeap{
       }
       else return;
     }
+  }
+
+  public static void heapify(int[] ary){
+    for(int i = ary.length-1;i>=0;i--){
+      pushDown(ary,ary.length,i);
+    }
+  }
+
+  public static void heapsort(int[] ary){
+    heapify(ary);
+    int size = ary.length;
+    for(int i = ary.length-1;i>=0;i--){
+      swap(ary,0,i);
+      size--;
+      pushDown(ary,size,0);
+    }
+  }
+
+  public static void main(String[] args){
+    int[] ary = {2,6,1,3,8,1,4,10,15};
+    heapify(ary);
+    System.out.println(Arrays.toString(ary));
   }
 
 }
