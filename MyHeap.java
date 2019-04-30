@@ -21,18 +21,18 @@ public class MyHeap{
             index = left;
           }
         }
-        else{
-          if(data[right]>data[index]){
-            swap(data,index,right);
-            index = right;
-          }
+        else if(data[right]>data[index]){
+          swap(data,index,right);
+          index = right;
         }
+        else return;
       }
 
       else{
         if(right==size){ //if there is one child
           if(data[left]>data[index]){
             swap(data,index,left);
+            index = left;
           }
         }
         return; //no other children
@@ -68,9 +68,11 @@ public class MyHeap{
   }
 
   public static void main(String[] args){
-    int[] ary = {2,6,1,3,8,1,4,10,15};
+    int[] ary = {2,6,1,3,8,1,4,10,15,27,30,100,20};
     heapify(ary);
+    HeapPrinter.print(ary);
     System.out.println(Arrays.toString(ary));
+    heapsort(ary);
   }
 
 }
