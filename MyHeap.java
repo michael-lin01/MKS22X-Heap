@@ -20,6 +20,7 @@ public class MyHeap{
             swap(data,index,left);
             index = left;
           }
+          else return;
         }
         else if(data[right]>data[index]){
           swap(data,index,right);
